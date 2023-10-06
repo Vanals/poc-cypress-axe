@@ -8,7 +8,7 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 
 # ---
-# workflow triggered when pushing code to a branch.
+# workflow triggered when pushing code to a branch
 on: [push]
 
 #You can also configure it to ron on push only on specific branches, tags etc.
