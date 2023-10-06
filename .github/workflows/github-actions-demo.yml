@@ -1,11 +1,48 @@
+permissions:
+  contents: read # Read-only access to the repository's content
+
 # Workflow name. Optional,, if ommited the file name will be used instead.
 name: learn-github-actions
 
 # More descripting worjflow name - shown in bigger in the actions UI
 run-name: ${{ github.actor }} is learning GitHub Actions
 
-# Event triggering the workflow
-on: [pull_request]
+# ---
+# workflow triggered when pushing code to a branch.
+on: [push]
+
+#You can also configure it to ron on push only on specific branches, tags etc.
+#on.push.<branches|tags|branches-ignore|tags-ignore>
+# on: 
+#   push:
+#     branches:
+
+## You can also specify a path, to only run the workflow when files in that path have changed
+
+# ---
+
+# Event triggering the workflow when a pull request is created.
+# on: [pull_request]
+# This trigger is used when you want to run a workflow on the repository where the pull request is being merged into 
+# on: [pull_request_target]
+
+#both can specify branch or branches ignore.
+# E.G
+# on:
+#   pull_request:
+#     # Sequence of patterns matched against refs/heads
+#     branches:  
+
+# You can also specify a path, to only run the workflow when files in that path have changed
+# --
+# on.schedule
+# ...
+# on.workflow_call
+# ...
+# on.workflow_run Like on workflow_call but you can specify in which branches the workflow must be called from
+# ...
+# on.workflow_dispatch 
+
 
 # Workflow's jobs
 jobs:
