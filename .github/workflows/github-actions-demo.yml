@@ -1,9 +1,18 @@
+# Workflow name. Optional,, if ommited the file name will be used instead.
 name: learn-github-actions
+
+# More descripting worjflow name - shown in bigger in the actions UI
 run-name: ${{ github.actor }} is learning GitHub Actions
 
-on: [push]
+# Event triggering the workflow
+on: [pull_request]
+
+# Workflow's jobs
 jobs:
+
+  # Workflow's job
   check-bats-version:
+    # Job's config
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
