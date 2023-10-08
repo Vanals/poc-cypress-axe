@@ -5,12 +5,16 @@
 
 # Workflow name. Optional,, if ommited the file name will be used instead.
 name: learn-github-actions
-
 # More descripting worjflow name - shown in bigger in the actions UI
 run-name: ${{ github.actor }} is learning GitHub Actions
 
+# Setting env variables available for all the job of this workflow?
 env:
   SERVER: production
+
+defaults: 
+  container:
+    image: node:14
 
 # ---
 # workflow triggered when pushing code to a branch
