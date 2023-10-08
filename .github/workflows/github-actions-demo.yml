@@ -1,5 +1,7 @@
-permissions:
-  contents: read # Read-only access to the repository's content
+# The permissions specified in the workflow configuration only apply to actions and scripts executed within the GitHub Actions workflow itself.
+# They do not affect direct interactions with the repository, such as using git push from your local development environment.
+# permissions:
+#   contents: read # Read-only access to the repository's content
 
 # Workflow name. Optional,, if ommited the file name will be used instead.
 name: learn-github-actions
@@ -9,7 +11,7 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 
 # ---
 # workflow triggered when pushing code to a branch
-on: [push]
+# on: [push]
 
 #You can also configure it to ron on push only on specific branches, tags etc.
 #on.push.<branches|tags|branches-ignore|tags-ignore>
@@ -41,7 +43,7 @@ on: [push]
 # ...
 # on.workflow_run Like on workflow_call but you can specify in which branches the workflow must be called from
 # ...
-# on.workflow_dispatch 
+on: [workflow_dispatch]
 
 
 # Workflow's jobs
@@ -52,6 +54,7 @@ jobs:
     # Job's config
     runs-on: ubuntu-latest
     steps:
+      # ACTIONS are basically orbs. So a set of steps that can be shared withing a community. And be also versioned
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
