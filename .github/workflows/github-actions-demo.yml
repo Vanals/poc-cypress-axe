@@ -9,9 +9,12 @@ name: learn-github-actions
 # More descripting worjflow name - shown in bigger in the actions UI
 run-name: ${{ github.actor }} is learning GitHub Actions
 
+env:
+  SERVER: production
+
 # ---
 # workflow triggered when pushing code to a branch
-# on: [push]
+on: [push]
 
 #You can also configure it to ron on push only on specific branches, tags etc.
 #on.push.<branches|tags|branches-ignore|tags-ignore>
@@ -43,7 +46,10 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 # ...
 # on.workflow_run Like on workflow_call but you can specify in which branches the workflow must be called from
 # ...
-on: [workflow_dispatch]
+# workflow dispatch stops the workflow to run automatically. Allows you to trigger the workfloe manually
+# and allso to chose in which branch you want to run the code into?
+# on: [workflow_dispatch]
+# ...
 
 
 # Workflow's jobs
@@ -61,3 +67,4 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+      - run: echo $SERVER
