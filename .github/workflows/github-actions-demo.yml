@@ -63,9 +63,11 @@ on: [push]
 
 
 # Checks if any concurrent jobs under the same pull request or branch are being executed
-# concurrency:
-#   group: 'marco' 
-#   cancel-in-progress: true
+concurrency:
+  # Can be set using github variables
+  group: 'marco' 
+  # if they do, i cancel the one in progress priotising the new one
+  cancel-in-progress: true
 
 
 # Workflow's jobs
@@ -73,6 +75,7 @@ jobs:
 
   # Workflow's job
   check-bats-version:
+    name: "Check Bats job Name"
     # Job's config
     runs-on: ubuntu-latest
     steps:
@@ -88,4 +91,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$github.base_ref marko test"
+      - run: echo "$github.base_ref"
