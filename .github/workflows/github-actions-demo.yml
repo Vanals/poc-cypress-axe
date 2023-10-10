@@ -88,4 +88,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$github.base_ref"
+      - run: echo "$github.base_ref marco"
