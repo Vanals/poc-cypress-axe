@@ -12,9 +12,12 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 env:
   SERVER: production
 
-defaults: 
-  container:
-    image: node:14
+
+# Use defaults to create a map of default settings that will apply to all jobs in the workflow.
+# NOT really sure what keys can be set other than "run" for setting working directory.
+# defaults: 
+  
+   
 
 # ---
 # workflow triggered when pushing code to a branch
@@ -46,7 +49,8 @@ on: [push]
 # --
 # on.schedule
 # ...
-# on.workflow_call
+# Use on.workflow_call to define the inputs and outputs for a reusable workflow. 
+# on.workflow_call 
 # ...
 # on.workflow_run Like on workflow_call but you can specify in which branches the workflow must be called from
 # ...
@@ -72,3 +76,8 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: echo $SERVER
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"
