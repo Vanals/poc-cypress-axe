@@ -63,9 +63,9 @@ on: [push]
 
 
 # Checks if any concurrent jobs under the same pull request or branch are being executed
-concurrency:
-  group: 'marco' 
-  cancel-in-progress: true
+# concurrency:
+#   group: 'marco' 
+#   cancel-in-progress: true
 
 
 # Workflow's jobs
