@@ -60,6 +60,14 @@ on: [push]
 # ...
 
 
+
+
+# Checks if any concurrent jobs under the same pull request or branch are being executed
+concurrency:
+  group: ${{ github.base_ref }} 
+  cancel-in-progress: true
+
+
 # Workflow's jobs
 jobs:
 
@@ -80,4 +88,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello"
+      - run: echo "$github.base_ref"
