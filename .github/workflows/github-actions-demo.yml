@@ -93,3 +93,20 @@ jobs:
     needs: check-bats-version
     steps:
       - run: echo "$github.base_ref"
+  
+  test-cy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.1.0
+        with:
+          build: npm run build
+          start: npm start
+
+
+
+# TODO RUN CYPRESS TESTS IN GH ACTIONS
+# TODO RUN AXE-CORE TESTS WITH CYPRESS
+# TODO MULTIPLE TESTS FOR CYPRESS AND PARALLELIZE THEM USING MATRIX
