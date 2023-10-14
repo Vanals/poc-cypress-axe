@@ -72,6 +72,16 @@ concurrency:
 
 # Workflow's jobs
 jobs:
+  # TODO can I do checkout on a separated job and pass repo down?
+  # TODO can I avoid having to re install dependencies in different jobs, cos actions do it under the hood?
+  # checkout:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # ACTIONS are basically orbs. So a set of steps that can be shared withing a community. And be also versioned
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '14'
 
   # Workflow's job
   check-bats-version:
@@ -109,6 +119,4 @@ jobs:
 
 
 
-# TODO RUN CYPRESS TESTS IN GH ACTIONS
-# TODO RUN AXE-CORE TESTS WITH CYPRESS
 # TODO MULTIPLE TESTS FOR CYPRESS AND PARALLELIZE THEM USING MATRIX
