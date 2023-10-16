@@ -3,29 +3,7 @@ run-name: ${{ github.actor }} is learning automated A11Y testing
 
 on: [push]
 
-jobs:
-
-  # Workflow's job.
-  check-bats-version:
-    name: "Check Bats job Name"
-    # Job's config
-    runs-on: ubuntu-latest
-    steps:
-      # ACTIONS are basically orbs. So a set of steps that can be shared withing a community. And be also versioned
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-      - run: echo $SERVER
-  
-  test:
-    runs-on: ubuntu-latest
-    needs: check-bats-version
-    steps:
-      - run: echo "$github.base_ref"
-  
+jobs:  
   test-cy:
     runs-on: ubuntu-22.04
     steps:
@@ -39,8 +17,3 @@ jobs:
           build: npm run build
           start: npm start
 
-
-
-# TODO RUN CYPRESS TESTS IN GH ACTIONS
-# TODO RUN AXE-CORE TESTS WITH CYPRESS
-# TODO MULTIPLE TESTS FOR CYPRESS AND PARALLELIZE THEM USING MATRIX
