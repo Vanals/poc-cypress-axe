@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <main className="App">
+    <div className="App">
       <header className="App-header">
-        <h1>Accessibility</h1>
+        {/* <h1>Accessibility</h1> */}
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </main>
+    </div>
   );
 }
 
