@@ -1,21 +1,12 @@
-describe('Create react app home', () => {
-  const siteTest = 'https://ecommerce-playground.lambdatest.io/'
+describe('Accessibility', () => {
+  const dummyWebsiteForAutomationTesting = 'https://ecommerce-playground.lambdatest.io/'
   const localHost = 'http://localhost:3000'
 
-  beforeEach(() => {
-    cy.request(siteTest).then((response) => {
-      if (response.isOkStatusCode) {
-        cy.visit(siteTest);
-      } else {
-        cy.visit(siteTest);
-      }
-    });
-  
-    cy.injectAxe();
-  });
+  it('should run accessibility tests', () => {
+    cy.visit(dummyWebsiteForAutomationTesting);
 
-  it('renders learn react link', () => {
-    cy.contains('Learn React');
+    cy.injectAxe();
+    // Tests the whole page
     cy.checkA11y()
   })
 
